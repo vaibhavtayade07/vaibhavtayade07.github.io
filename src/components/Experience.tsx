@@ -14,7 +14,7 @@ const roles: Role[] = [
     period: 'Jan 2024 to Jun 2024',
     bullets: [
       'Built and experimented with multiple AI agents and agentic workflows, evaluating orchestration and tooling approaches for real use cases.',
-      'Worked hands-on across the GenAI toolchain — agent frameworks, LLM APIs, and retrieval components — to prototype and iterate on AI-driven features.',
+      'Worked hands on across the GenAI toolchain, agent frameworks, LLM APIs, and retrieval components, to prototype and iterate on AI driven features.',
     ],
   },
   {
@@ -22,8 +22,8 @@ const roles: Role[] = [
     company: 'Sericaway.run',
     period: 'Jul 2024 to Jan 2026',
     bullets: [
-      'Founded Sericaway, building AI systems and agents for business clients, delivering multiple production-ready systems from requirements through deployment.',
-      'Owned the full delivery lifecycle — architecture, implementation, and handoff — across multiple client engagements.',
+      'Founded Sericaway, building AI systems and agents for business clients, delivering multiple production ready systems from requirements through deployment.',
+      'Owned the full delivery lifecycle, architecture, implementation, and handoff, across multiple client engagements.',
     ],
   },
 ]

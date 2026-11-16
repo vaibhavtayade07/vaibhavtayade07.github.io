@@ -13,8 +13,8 @@ const primary: Group[] = [
     items: [
       'Google ADK',
       'LangChain',
-      'Multi-agent orchestration',
-      'Tool-use design',
+      'Multi agent orchestration',
+      'Tool use design',
       'Agent memory & handoff patterns',
     ],
   },
@@ -52,7 +52,7 @@ const secondary: Group[] = [
   {
     index: '05',
     title: 'Tools & Practices',
-    items: ['Git / GitHub workflows', 'API integration', 'n8n', 'Docker', 'Cross-functional delivery'],
+    items: ['Git / GitHub workflows', 'API integration', 'n8n', 'Docker', 'Cross functional delivery'],
   },
 ]
 
@@ -82,7 +82,7 @@ export default function Skills() {
             Tools I <span>reach for.</span>
           </h2>
           <p className="section__lede">
-            A working stack, not a wishlist — the tools I use to take systems from prototype to
+            A working stack, not a wishlist, the tools I use to take systems from prototype to
             production.
           </p>
         </Reveal>

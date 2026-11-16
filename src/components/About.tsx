@@ -18,16 +18,16 @@ export default function About() {
 
         <Reveal className="about__body" delay={120}>
           <p>
-            I'm a final-year Computer Science student at COEP Technological University and the
-            founder of Sericaway, where I build AI agents and LLM-powered systems for real-world
+            I'm a final year Computer Science student at COEP Technological University and the
+            founder of Sericaway, where I build AI agents and LLM powered systems for real world
             business applications. My work spans agentic workflows, Model Context Protocol (MCP),
-            LangChain, RAG, and vector search — backed by FastAPI services and hands-on experience
+            LangChain, RAG, and vector search, backed by FastAPI services and hands on experience
             with Hugging Face, n8n, and modern AI frameworks.
           </p>
           <p>
-            I take systems end to end — from data pipelines and retrieval systems to Telegram bots
+            I take systems end to end, from data pipelines and retrieval systems to Telegram bots
             and Docker deployments. I pick up unfamiliar tech quickly and execute under pressure,
-            having once shipped a four-stage agent pipeline in a one-day hackathon with no prior
+            having once shipped a four stage agent pipeline in a one day hackathon with no prior
             prep.
           </p>
 

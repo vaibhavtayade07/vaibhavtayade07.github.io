@@ -12,10 +12,10 @@ type Project = {
 const projects: Project[] = [
   {
     title: 'TretaInvestment',
-    subtitle: 'AI Mutual-Fund Back-Office Platform',
+    subtitle: 'AI Mutual Fund Back Office Platform',
     bullets: [
       'Independently designed and built a production system automating a mutual fund distributor’s entire workflow with Python, PostgreSQL, and LLMs.',
-      'ETL pipelines for AMFI/NSE market data and a RAG knowledge base over SEBI/AMFI circulars; Telegram bot with human-in-the-loop approvals and constraint-validated recommendations.',
+      'ETL pipelines for AMFI/NSE market data and a RAG knowledge base over SEBI/AMFI circulars; Telegram bot with human in the loop approvals and constraint validated recommendations.',
       'Transaction ledger with FIFO cost basis, commission tracking, and a compliance rule engine, plus a NiceGUI dashboard with ECharts, CI, and full Docker deployment.',
     ],
     tags: ['Python', 'PostgreSQL', 'LLMs', 'RAG', 'Docker', 'NiceGUI'],
@@ -24,28 +24,28 @@ const projects: Project[] = [
     title: 'FlytBase BDR Hackathon',
     subtitle: 'Autonomous Outbound Agent Pipeline',
     bullets: [
-      'Built a 4-stage agent workflow covering account ID, contact discovery, account research, and email generation in a live single-day hackathon with no pre-reads.',
+      'Built a 4 stage agent workflow covering account ID, contact discovery, account research, and email generation in a live single day hackathon with no pre reads.',
       'Targeted LatAm mining prospects for FlytBase’s drone inspection product.',
     ],
-    tags: ['Multi-Agent', 'LangChain', 'Automation'],
+    tags: ['Multi Agent', 'LangChain', 'Automation'],
   },
   {
     title: 'Enterprise RAG Knowledge Assistant',
-    subtitle: 'Document-grounded Q&A at scale',
+    subtitle: 'Document grounded Q&A at scale',
     bullets: [
-      'Built a retrieval-augmented generation system for document-based Q&A, handling ingestion, chunking, and embedding generation into a vector database.',
+      'Built a retrieval augmented generation system for document based Q&A, handling ingestion, chunking, and embedding generation into a vector database.',
       'Served through a FastAPI backend with a clean retrieval and generation interface.',
     ],
     tags: ['RAG', 'Vector DB', 'FastAPI'],
   },
   {
-    title: 'Multi-Agent Business Ops System',
-    subtitle: 'Supervisor-led specialist delegation',
+    title: 'Multi Agent Business Ops System',
+    subtitle: 'Supervisor led specialist delegation',
     bullets: [
-      'Designed and deployed a multi-agent system with a supervisor agent delegating to specialist sub-agents for distinct business tasks.',
+      'Designed and deployed a multi agent system with a supervisor agent delegating to specialist sub agents for distinct business tasks.',
       'Implemented structured tool use and handoff logic for reliable task routing.',
     ],
-    tags: ['Google ADK', 'Multi-Agent', 'Tool Use'],
+    tags: ['Google ADK', 'Multi Agent', 'Tool Use'],
   },
 ]
 
@@ -113,7 +113,7 @@ export default function Projects() {
             </h2>
           </div>
           <p className="section__lede">
-            A few systems where I owned the outcome — from architecture and retrieval all the way
+            A few systems where I owned the outcome, from architecture and retrieval all the way
             to deployment.
           </p>
         </Reveal>

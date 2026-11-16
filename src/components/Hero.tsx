@@ -3,7 +3,7 @@ import { usePrefersReducedMotion } from '../hooks/useMediaQuery'
 
 const Scene = lazy(() => import('./Scene'))
 
-const WORDS = ['Generative AI', 'Agentic Systems', 'RAG Pipelines', 'Multi-Agent Orchestration']
+const WORDS = ['Generative AI', 'Agentic Systems', 'RAG Pipelines', 'Multi Agent Orchestration']
 
 function useTypewriter(reduced: boolean) {
   const [index, setIndex] = useState(0)
@@ -72,11 +72,11 @@ export default function Hero() {
             <span className="hero__caret" />
           </p>
           <p className="sr-only">
-            I build Generative AI, Agentic Systems, RAG Pipelines, and Multi-Agent Orchestration.
+            I build Generative AI, Agentic Systems, RAG Pipelines, and Multi Agent Orchestration.
           </p>
 
           <p className="hero__intro">
-            Shipping AI agents and LLM-powered systems for real-world business applications.
+            Shipping AI agents and LLM powered systems for real world business applications.
           </p>
 
           <div className="hero__actions">
