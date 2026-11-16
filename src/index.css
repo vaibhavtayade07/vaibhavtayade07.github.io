@@ -28,6 +28,7 @@
 }
 
 html {
+  color-scheme: dark;
   scroll-behavior: smooth;
   scroll-padding-top: 88px;
   -webkit-text-size-adjust: 100%;
@@ -43,6 +44,12 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+
+a,
+button {
+  touch-action: manipulation;
 }
 
 ::selection {
@@ -68,9 +75,14 @@ ol {
 
 h1,
 h2,
-h3,
+h3 {
+  margin: 0;
+  text-wrap: balance;
+}
+
 p {
   margin: 0;
+  text-wrap: pretty;
 }
 
 :focus-visible {
@@ -155,6 +167,16 @@ main {
 
 .eyebrow__sep {
   color: rgba(255, 255, 255, 0.22);
+}
+
+.hud__row span:last-child,
+.stat-strip,
+.timeline__period,
+.project-card__index,
+.skill-group__index,
+.education__badge,
+.contact__details {
+  font-variant-numeric: tabular-nums;
 }
 
 .section {
@@ -259,9 +281,33 @@ main {
 }
 
 .btn--primary {
+  position: relative;
+  overflow: hidden;
   background: var(--accent);
   color: var(--bg);
   border-color: var(--accent);
+}
+
+.btn--primary::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 40%;
+  height: 100%;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.6s var(--ease);
+}
+
+.btn--primary:hover::after {
+  left: 130%;
+}
+
+.btn--primary > * {
+  position: relative;
+  z-index: 1;
 }
 
 .btn--primary:hover {
@@ -297,6 +343,27 @@ main {
 .reveal--visible {
   opacity: 1;
   transform: none;
+}
+
+/* ---------- Scroll progress ---------------------------------------------- */
+
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 150;
+  height: 2px;
+  pointer-events: none;
+}
+
+.scroll-progress__bar {
+  width: 100%;
+  height: 100%;
+  transform: scaleX(0);
+  transform-origin: left center;
+  background: linear-gradient(90deg, var(--accent-2), var(--accent));
+  box-shadow: 0 0 12px rgba(199, 243, 90, 0.55);
 }
 
 /* ---------- Nav ---------------------------------------------------------- */
@@ -357,6 +424,7 @@ main {
 }
 
 .nav__links a {
+  position: relative;
   font-family: var(--font-mono);
   font-size: 0.76rem;
   letter-spacing: 0.04em;
@@ -364,8 +432,31 @@ main {
   transition: color 0.2s ease;
 }
 
-.nav__links a:hover {
+.nav__links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  height: 1px;
+  width: 100%;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s var(--ease);
+}
+
+.nav__links a:hover,
+.nav__links a:focus-visible {
   color: var(--text);
+}
+
+.nav__links a:hover::after,
+.nav__links a:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.nav__links a:hover .nav__link-index {
+  opacity: 1;
 }
 
 .nav__link-index {
@@ -492,6 +583,33 @@ main {
 .hero__content {
   max-width: 660px;
 }
+
+@keyframes heroRise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.hero__eyebrow,
+.hero .status-chip,
+.hero__title,
+.hero__type,
+.hero__intro,
+.hero__actions {
+  animation: heroRise 0.75s var(--ease) both;
+}
+
+.hero__eyebrow { animation-delay: 80ms; }
+.hero .status-chip { animation-delay: 160ms; }
+.hero__title { animation-delay: 240ms; }
+.hero__type { animation-delay: 340ms; }
+.hero__intro { animation-delay: 420ms; }
+.hero__actions { animation-delay: 500ms; }
 
 .hero__eyebrow {
   margin-bottom: 24px;
@@ -895,8 +1013,33 @@ main {
   padding: clamp(24px, 3vw, 34px);
   border: 1px solid var(--border);
   background: var(--surface);
+  overflow: hidden;
   transition: transform 0.18s var(--ease), border-color 0.25s ease, box-shadow 0.25s ease;
   will-change: transform;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    circle 280px at var(--glare-x, 50%) var(--glare-y, 50%),
+    rgba(199, 243, 90, 0.09),
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-card:hover::before {
+  opacity: 1;
+}
+
+.project-card > * {
+  position: relative;
+  z-index: 1;
 }
 
 .project-card:hover {
@@ -1274,6 +1417,10 @@ main {
     font-size: 0.86rem;
   }
 
+  .nav__links a::after {
+    display: none;
+  }
+
   .nav__cta--mobile {
     display: inline-flex;
     justify-content: center;
@@ -1378,7 +1525,23 @@ main {
     animation: none !important;
   }
 
+  .hero__eyebrow,
+  .hero .status-chip,
+  .hero__title,
+  .hero__type,
+  .hero__intro,
+  .hero__actions {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
   .project-card {
     transform: none !important;
+  }
+
+  .project-card::before,
+  .btn--primary::after {
+    display: none !important;
   }
 }

@@ -16,7 +16,7 @@ export default function Contact() {
             <span>something.</span>
           </h2>
           <p className="contact__statement">
-            Have a hard problem in agents, retrieval, or production AI? I'd like to hear about it.
+            Have a hard problem in agents, retrieval, or production AI? I'd love to hear about it.
           </p>
 
           <div className="contact__actions">

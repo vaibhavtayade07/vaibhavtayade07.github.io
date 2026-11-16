@@ -59,10 +59,15 @@ function ProjectCard({ project, index, reduced }: { project: Project; index: num
     const py = (event.clientY - rect.top) / rect.height - 0.5
     cardRef.current.style.transform =
       `perspective(1000px) rotateX(${(-py * 8).toFixed(2)}deg) rotateY(${(px * 10).toFixed(2)}deg) translateY(-4px)`
+    cardRef.current.style.setProperty('--glare-x', `${((px + 0.5) * 100).toFixed(1)}%`)
+    cardRef.current.style.setProperty('--glare-y', `${((py + 0.5) * 100).toFixed(1)}%`)
   }
 
   const handleLeave = () => {
-    if (cardRef.current) cardRef.current.style.transform = ''
+    if (!cardRef.current) return
+    cardRef.current.style.transform = ''
+    cardRef.current.style.removeProperty('--glare-x')
+    cardRef.current.style.removeProperty('--glare-y')
   }
 
   return (
@@ -108,7 +113,7 @@ export default function Projects() {
             </h2>
           </div>
           <p className="section__lede">
-            A few systems where I owned the outcome, from architecture and retrieval all the way
+            A few systems where I owned the outcome — from architecture and retrieval all the way
             to deployment.
           </p>
         </Reveal>

@@ -82,8 +82,8 @@ export default function Skills() {
             Tools I <span>reach for.</span>
           </h2>
           <p className="section__lede">
-            A working stack, not a wishlist. These are the tools I use to take systems from
-            prototype to production.
+            A working stack, not a wishlist — the tools I use to take systems from prototype to
+            production.
           </p>
         </Reveal>
 

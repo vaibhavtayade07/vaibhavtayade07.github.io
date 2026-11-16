@@ -76,7 +76,7 @@ export default function Hero() {
           </p>
 
           <p className="hero__intro">
-            Building AI agents and LLM-powered systems for real-world business applications.
+            Shipping AI agents and LLM-powered systems for real-world business applications.
           </p>
 
           <div className="hero__actions">

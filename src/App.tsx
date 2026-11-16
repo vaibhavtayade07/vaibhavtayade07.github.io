@@ -1,4 +1,5 @@
 import Nav from './components/Nav'
+import ScrollProgress from './components/ScrollProgress'
 import Hero from './components/Hero'
 import About from './components/About'
 import Skills from './components/Skills'
@@ -12,6 +13,7 @@ export default function App() {
   return (
     <>
       <a className="skip-link" href="#main">Skip to content</a>
+      <ScrollProgress />
       <div className="site-grid" aria-hidden="true" />
       <Nav />
       <main id="main">

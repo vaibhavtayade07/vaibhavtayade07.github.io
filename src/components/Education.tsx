@@ -12,7 +12,10 @@ export default function Education() {
         </Reveal>
 
         <Reveal delay={120}>
-          <div className="education__card">
+          <article
+            className="education__card"
+            aria-label="B.Tech in Computer Science, COEP Technological University, Pune, India, expected 2027"
+          >
             <div className="education__badge">
               <span>2027</span>
               <small>EXPECTED</small>
@@ -23,7 +26,7 @@ export default function Education() {
               <p className="education__location">Pune, India</p>
             </div>
             <span className="education__glyph" aria-hidden="true" />
-          </div>
+          </article>
         </Reveal>
       </div>
     </section>
