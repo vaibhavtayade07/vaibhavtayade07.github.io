@@ -1,8 +1,6 @@
 import Reveal from './Reveal'
 
 const EMAIL = 'tayadevaibhav60@gmail.com'
-const PHONE_DISPLAY = '+91 80108 91562'
-const PHONE_HREF = 'tel:+918010891562'
 
 export default function Contact() {
   return (
@@ -23,14 +21,10 @@ export default function Contact() {
             <a className="btn btn--primary btn--lg" href={`mailto:${EMAIL}`}>
               Email Vaibhav <span aria-hidden="true">&rarr;</span>
             </a>
-            <a className="btn btn--ghost btn--lg" href={PHONE_HREF}>
-              Call / WhatsApp
-            </a>
           </div>
 
           <div className="contact__details">
             <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
-            <a href={PHONE_HREF}>{PHONE_DISPLAY}</a>
           </div>
 
           <div className="contact__socials">
