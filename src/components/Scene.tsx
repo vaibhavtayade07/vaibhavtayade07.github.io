@@ -4,7 +4,6 @@ import { Float, Line, OrbitControls, Sparkles } from '@react-three/drei'
 import { Bloom, EffectComposer } from '@react-three/postprocessing'
 import * as THREE from 'three'
 import { useIsMobile, usePrefersReducedMotion } from '../hooks/useMediaQuery'
-import Elephant from './Elephant'
 
 const LIME = '#C7F35A'
 const TEAL = '#5EE0C8'
@@ -249,7 +248,6 @@ export default function Scene() {
             <pointLight position={[4, -2, 2]} intensity={24} color={TEAL} distance={22} />
             <Suspense fallback={null}>
               <Network reduced={reduced} isMobile={isMobile} />
-              <Elephant reduced={reduced} isMobile={isMobile} />
               <EffectComposer>
                 <Bloom
                   intensity={0.8}

@@ -1,4 +1,4 @@
-import { useMemo, useRef } from 'react'
+import { useMemo, useRef, type MutableRefObject } from 'react'
 import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
 import { useMediaQuery } from '../hooks/useMediaQuery'
@@ -6,6 +6,8 @@ import { useMediaQuery } from '../hooks/useMediaQuery'
 type ElephantProps = {
   reduced: boolean
   isMobile: boolean
+  pointer?: MutableRefObject<{ x: number; y: number }>
+  scale?: number
 }
 
 // The elephant lives in front of the core network, closer to the camera.
@@ -22,10 +24,13 @@ const DEPTH_FACTOR = 0.7
  * - On touch / mobile it drifts slowly on a Lissajous path instead.
  * - With prefers-reduced-motion it stays completely still.
  *
- * It has no pointer event handlers, so it never intercepts DOM clicks; the
- * surrounding .scene-layer is aria-hidden, keeping it decorative.
+ * - When a pointer ref is supplied (the global overlay) it tracks that instead
+ *   of R3F pointer state, so it follows the cursor outside the hero canvas.
+ *
+ * It has no pointer event handlers, so it never intercepts DOM clicks; its
+ * surrounding overlay layer is aria-hidden, keeping it decorative.
  */
-export default function Elephant({ reduced, isMobile }: ElephantProps) {
+export default function Elephant({ reduced, isMobile, pointer, scale = 0.55 }: ElephantProps) {
   const isTouch = useMediaQuery('(pointer: coarse)')
   const drift = isMobile || isTouch
 
@@ -92,8 +97,10 @@ export default function Elephant({ reduced, isMobile }: ElephantProps) {
     } else {
       const rangeX = (state.viewport.width / 2) * DEPTH_FACTOR
       const rangeY = (state.viewport.height / 2) * DEPTH_FACTOR
-      target.current.x = state.pointer.x * rangeX
-      target.current.y = state.pointer.y * rangeY
+      const px = pointer ? pointer.current.x : state.pointer.x
+      const py = pointer ? pointer.current.y : state.pointer.y
+      target.current.x = px * rangeX
+      target.current.y = py * rangeY
     }
 
     const smoothing = 1 - Math.pow(0.0016, delta)
@@ -118,7 +125,7 @@ export default function Elephant({ reduced, isMobile }: ElephantProps) {
     <group
       ref={group}
       position={[1.1, -0.2, ELEPHANT_Z]}
-      scale={0.55}
+      scale={scale}
       rotation={[0.05, -0.25, 0]}
     >
       <group ref={inner}>
